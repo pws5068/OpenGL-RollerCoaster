@@ -1,0 +1,27 @@
+--- Windows / VC++ users --
+
+Open heightmap.sln. This setup assumes that your additional library files reside 
+in Y:\libd for debug builds and Y:\lib for release builds. Also assumes that your 
+additional include files reside in Y:\include. 
+
+If you are working in the lab and followed the posted instructions that should be 
+the case.
+
+If that is not where you unzipped the files from vc-libs-opengl.zip, just edit your
+project properties and change the include path under the C/C++ properties and the
+lib paths under Link properties.
+
+-- Mingw/Code::Blocks users --
+
+Copy Makefile.mingw to Makefile and use the make command. This makefile assumes that 
+you unzipped mingw-libs-opengl.zip under the /cse418 directory if that was not the case
+change the assignment to GRAPHICS in the makefile to that path.
+
+If you are using Code::Blocks just create an empty project and use the information from 
+Makefile.mingw to set the additional libraries.
+
+
+-- Linux users --
+
+Makefile.linux should provide you an starting point. If you are using Linux we are
+assuming that you know how to setup your environment.

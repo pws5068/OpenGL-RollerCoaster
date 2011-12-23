@@ -1,0 +1,44 @@
+# Makefile CSE418
+# Shayan Sarkar
+# Modified by aherrman, Jan 2004 
+# Jan 16, 2002
+# Modified by rel, Jan 2007
+# Version for C++
+
+# This should point to the directory where you unziped the libs and includes
+# you can also unzip glut libs and includes here
+GRAPHICS = /cse418
+
+INCLUDE = -I$(GRAPHICS)/include
+LIBRARYPATH = -L$(GRAPHICS)/lib -L/usr/X11R6/lib/
+LIBRARIES = $(LIBRARYPATH) -lGL -lGLU -lglut -lpicio -ltiff -ljpeg -lm -lXi -lXmu
+
+COMPILER = gcc
+COMPILERFLAGS = -O2 $(INCLUDE)
+
+# ---------- BEGIN SECTION TO CHANGE AS NEEDED ----------
+
+PROGRAM =	rollercoaster
+
+SOURCE =	rc_main.cpp rc_spline.cpp
+
+OBJECT =	rc_main.o rc_spline.o
+
+
+# ---------- END SECTION TO CHANGE AS NEEDED ----------
+
+.c.o: 
+	$(COMPILER) -c $(COMPILERFLAGS) $<
+
+
+.cpp.o: 
+	$(COMPILER) -c $(COMPILERFLAGS) $<
+
+
+all: $(PROGRAM)
+
+$(PROGRAM): $(OBJECT)
+	$(COMPILER) $(COMPILERFLAGS) -o $(PROGRAM) $(OBJECT) $(LIBRARIES)
+
+clean:
+	-rm -rf core *.o *~ .*~ $(PROGRAM)
